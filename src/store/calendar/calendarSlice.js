@@ -3,7 +3,7 @@ import { addHours } from 'date-fns';
 
 const tempEvent = {
     _id: new Date().getTime(),
-    title: 'Cumpleaños del gato',
+    title: 'Cumpleaños del Gato',
     notes: 'Hay que comprar churus',
     start: new Date(),
     end: addHours(new Date(), 2),
@@ -15,12 +15,12 @@ const tempEvent = {
 };
 
 export const calendarSlice = createSlice({
-    name: 'name',
+    name: 'calendar',
     initialState: {
         events: [
-            tempEvent,
+            tempEvent
         ],
-        activeEvent: null,
+        activeEvent: null
     },
     reducers: {
         onSetActiveEvent: (state, { payload }) => {
@@ -44,8 +44,8 @@ export const calendarSlice = createSlice({
                 state.events = state.events.filter(event => event._id !== state.activeEvent._id);
                 state.activeEvent = null;
             }
-        },
+        }
     }
 });
 
-export const { onAddNewEvent, onDeleteEvent, onSetActiveEvent, onUpdateEvent } = calendarSlice.actions;
+export const { onSetActiveEvent, onAddNewEvent, onUpdateEvent, onDeleteEvent } = calendarSlice.actions;
